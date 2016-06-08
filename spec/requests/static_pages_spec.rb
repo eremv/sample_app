@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "Static pages" do
-  let!(:page_title){"Ruby on Rails Tutorial Sample App |"}
+  let!(:page_title){"Ruby on Rails Tutorial Sample App"}
 
   describe "Home page" do
     before do
@@ -12,8 +12,12 @@ describe "Static pages" do
       expect(page).to have_content("Sample App")
     end
 
-    it "should have the title 'Home'" do
-      expect(page).to have_title("#{page_title} Home")
+    it "should have the base title" do
+      expect(page).to have_title(page_title)
+    end
+
+    it "should not have a custom page title" do
+      expect(page).not_to have_title("| Home")
     end
   end
 
@@ -27,7 +31,7 @@ describe "Static pages" do
     end
 
     it "should have the title 'Help'" do
-      expect(page).to have_title("#{page_title} Help")
+      expect(page).to have_title("#{page_title} | Help")
     end
   end
 
@@ -41,7 +45,7 @@ describe "Static pages" do
     end
 
     it "should have the title 'About'" do
-      expect(page).to have_title("#{page_title} About")
+      expect(page).to have_title("#{page_title} | About")
     end
   end
 
@@ -55,7 +59,7 @@ describe "Static pages" do
     end
 
     it "should have titile 'Contact'" do
-      expect(page).to have_title("#{page_title} Contact")
+      expect(page).to have_title("#{page_title} | Contact")
     end
 
   end
