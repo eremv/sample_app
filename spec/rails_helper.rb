@@ -6,7 +6,7 @@ require Rails.root.join('spec', 'support', 'utilities.rb')
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'spec_helper'
 require 'rspec/rails'
-
+require 'rspec/its'
 require 'capybara/rspec'
 require 'capybara/rails'
 

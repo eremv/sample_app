@@ -43,12 +43,8 @@ describe "Static pages" do
   it "should have the right links on the layout" do
     visit root_path
     within('.navbar') do
-      click_link "About"
-      expect(page).to have_title(full_title('About Us'))
       click_link "Help"
       expect(page).to have_title(full_title('Help'))
-      click_link "Contact"
-      expect(page).to have_title(full_title('Contact'))
       click_link "Home"
     end
     click_link "Sign up now!"

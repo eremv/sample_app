@@ -12,8 +12,18 @@ describe User do
   it { should respond_to(:password_digest) }
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
+  it { should respond_to(:remember_token) }
   it { should be_valid }
   it { should respond_to(:authenticate) }
+
+  describe "remember token" do
+    before{ @user.save }
+    # it "should not be blank" do
+    #   expect(@user.remember_token).to_not be_blank
+    # end
+
+    its(:remember_token) {is_expected.to_not be_blank} 
+  end
 
   describe 'when name is not present' do
     before { @user.name = "" }
